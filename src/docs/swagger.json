@@ -1,0 +1,36 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/management/health/liveness": {
+            "get": {
+                "description": "Get the liveness status of the service",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get the liveness status",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/management/health/readiness": {
+            "get": {
+                "description": "Get the readiness status of the service",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get the readiness status",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+info:
+  contact: {}
+paths:
+  /management/health/liveness:
+    get:
+      description: Get the liveness status of the service
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Get the liveness status
+  /management/health/readiness:
+    get:
+      description: Get the readiness status of the service
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Get the readiness status
+swagger: "2.0"
