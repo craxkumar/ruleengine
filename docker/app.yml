@@ -1,0 +1,18 @@
+# This configuration is intended for development purpose, it's **your** responsibility to harden it for production
+name: ruleengine
+services:
+  app:
+    image: ruleengine
+    environment:
+      - GO_MICRO_SERVICE_PORT=9020
+    ports:
+      - '9020:9020'
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - -f
+        - http://localhost:9020/management/health
+      interval: 5s
+      timeout: 5s
+      retries: 40
