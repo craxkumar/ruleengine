@@ -24,7 +24,10 @@ const docTemplate = `{
                 "summary": "Get the liveness status",
                 "responses": {
                     "200": {
-                        "description": "OK"
+                        "description": "Success response",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.HealthResponse"
+                        }
                     }
                 }
             }
@@ -38,8 +41,35 @@ const docTemplate = `{
                 "summary": "Get the readiness status",
                 "responses": {
                     "200": {
-                        "description": "OK"
+                        "description": "Success response",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.HealthResponse"
+                        }
                     }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "controllers.HealthResponse": {
+            "type": "object",
+            "properties": {
+                "components": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/controllers.HealthStatus"
+                    }
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "controllers.HealthStatus": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string"
                 }
             }
         }

@@ -1,3 +1,18 @@
+definitions:
+  controllers.HealthResponse:
+    properties:
+      components:
+        additionalProperties:
+          $ref: '#/definitions/controllers.HealthStatus'
+        type: object
+      status:
+        type: string
+    type: object
+  controllers.HealthStatus:
+    properties:
+      status:
+        type: string
+    type: object
 info:
   contact: {}
 paths:
@@ -8,7 +23,9 @@ paths:
       - application/json
       responses:
         "200":
-          description: OK
+          description: Success response
+          schema:
+            $ref: '#/definitions/controllers.HealthResponse'
       summary: Get the liveness status
   /management/health/readiness:
     get:
@@ -17,6 +34,8 @@ paths:
       - application/json
       responses:
         "200":
-          description: OK
+          description: Success response
+          schema:
+            $ref: '#/definitions/controllers.HealthResponse'
       summary: Get the readiness status
 swagger: "2.0"
